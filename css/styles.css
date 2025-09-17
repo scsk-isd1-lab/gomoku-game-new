@@ -1,0 +1,187 @@
+/* 全体のスタイリング */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ヘッダースタイル */
+header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* ゲーム情報表示エリア */
+.game-info {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.player-info {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.player {
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.player.black {
+    background-color: #333;
+    color: white;
+}
+
+.player.white {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.game-result {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ボード関連のスタイル */
+.board-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    background-color: #E9CD9E;
+    padding: 2px;
+    border: 2px solid #8B5A2B;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.cell {
+    border: 1px solid #8B5A2B;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cell:before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+
+.cell:hover:not(.black):not(.white) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.stone {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.black .stone {
+    background-color: #000;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.white .stone {
+    background-color: #FFF;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+}
+
+/* コントロール部分のスタイル */
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.reset-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+    background-color: #2980b9;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .player-info {
+        font-size: 1rem;
+    }
+
+    .game-result {
+        font-size: 1.2rem;
+    }
+
+    .board {
+        margin: 0 auto;
+    }
+
+    .reset-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
