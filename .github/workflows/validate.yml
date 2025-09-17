@@ -1,0 +1,32 @@
+name: Validate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  html-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check HTML
+        run: |
+          npx html-validate index.html
+
+  css-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check CSS
+        run: |
+          npx stylelint "css/**/*.css"
+
+  js-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check JavaScript
+        run: |
+          npx eslint "js/**/*.js"
